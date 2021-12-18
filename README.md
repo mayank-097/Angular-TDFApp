@@ -1,5 +1,15 @@
 # TDFApp
 
+* Angular project to enter details of a tech person.
+* Applying all the Angular validations.
+* Skills are checkboxes that are generated at run time on the basis of the department i.e.
+  IT department person has different skills like programming languages.
+  Sales and marketing person has different skills.
+* Number of skills can be selected as per the experience and the salary must be accordingly.
+
+
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.12.
 
 ## Development server
