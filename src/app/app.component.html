@@ -1,0 +1,109 @@
+<div>
+  <div class="formdiv">
+    <form (ngSubmit)="onSubmit(EmployeeForm)" #EmployeeForm="ngForm">
+      <table>
+        <tr>
+          <td>
+            <label >Employee Name</label>
+          </td>
+          <td>
+            <input required #Empname="ngModel" type = "text" name="name"    [(ngModel)]="EmployeeObj.empName">
+          </td>
+          <td> 
+            <div class="errorClass"> 
+                <div *ngIf="Empname.invalid==true && Empname.pristine==false" >
+                  Name cannot be left blank
+                </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label >Employee Salary</label>
+          </td>
+          <td>
+            <input required #Empsalary="ngModel" type = "number" name="salary"  [(ngModel)]="EmployeeObj.empSalary">
+          </td>
+          <td> 
+            <div class="errorClass"> 
+                <div *ngIf="Empsalary.invalid==true && Empsalary.pristine==false" >
+                  Salary Cannot be left blank
+                </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label >Department</label>
+          </td>
+          <td>
+            <input required #Empdept="ngModel" type = "text" (keyup)="filterskills(Empdept.value)" name="department"  [(ngModel)]="EmployeeObj.empDepartment">
+          </td>
+          <td> 
+            <div class="errorClass"> 
+                <div *ngIf="Empdept.invalid==true && Empdept.pristine==false" >
+                  Department cannot be left blank
+                </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label >Skills</label>
+          </td>
+          <td *ngFor = "let filskills of filteredskills">
+            <tr >
+              <input   type = "checkbox" name="skills" (click)="filledskills(filskills)">{{filskills}}
+            </tr>
+          </td>
+          <td> 
+            <div class="errorClass"> 
+                <div *ngIf="Empname.invalid==true && Empname.pristine==false" >
+                  Skills cannot be left blank
+                </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label >Experience</label>
+          </td>
+          <td>
+            <input required #Empexp="ngModel" type = "number" (keyup)="checkexperience(Empexp.value,Empsalary.value)" name="experience"  [(ngModel)]="EmployeeObj.empExperience">
+          </td>
+          <td> 
+            <div class="errorClass"> 
+                <div *ngIf="Empexp.invalid==true && Empexp.pristine==false" >
+                  Experience cannot be left blank
+                </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label >Assigned Task</label>
+          </td>
+          <td>
+            <input required #Emptask="ngModel" type = "text" name="assignedtask"  [(ngModel)]="EmployeeObj.empAssignedtask">
+          </td>
+          <td> 
+            <div class="errorClass"> 
+                <div *ngIf="Emptask.invalid==true && Emptask.pristine==false" >
+                  Assigned Task cannot be left blank
+                </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>   </td>
+          <td> <input type="submit" value="Enter Employee"  [disabled]="isvalid==false"  />  </td>
+          <td>   </td>
+        </tr>
+      </table>
+    </form>
+
+  </div>
+  <div class="resultdiv">
+
+  </div>
+</div>
